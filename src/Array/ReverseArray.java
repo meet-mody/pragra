@@ -2,23 +2,70 @@ package Array;
 
 public class ReverseArray {
     public static void main(String[] args) {
-        int [] array = new int[]{1,2,3,4,5,6,7,8,9};
+        int [] arr = new int[]{10,20,30,40,50};
+        //int [] arr = new int[]{1,3,2};
 
-        System.out.println("Original Array:");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        System.out.println("\nOriginal Array:");
+        for (int element : arr) {
+            System.out.print(element + " ");
         }
 
-        for (int i = 0; i < (array.length)/2; i++) {
-            int temp = array[i];
-            array[i] = array[array.length - i - 1];
-            array[array.length - i - 1] = temp;
-        }
+        reverseArray(arr);
+        minValue(arr);
+        maxValue(arr);
+        sumArray(arr);
 
         System.out.println("\nReversed Array:");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int element : arr) {
+            System.out.print(element + " ");
         }
+    }
 
+    public static void reverseArray (int[] array) {
+
+        int start=0;
+        int end=array.length-1;
+
+        while(start<end){
+            int temp = array[start];
+            array[start]=array[end];
+            array[end]=temp;
+            start ++;
+            end --;
+        }
+    }
+
+    public static void minValue (int[] array){
+
+        int min=array[0];
+
+        for(int element:array){
+            if(element<min){
+                min=element;
+            }
+        }
+        System.out.println("\nMinimum value in the array: " + min);
+    }
+
+    public static void maxValue (int[] array){
+
+        int max=array[0];
+
+        for(int element:array){
+            if(element>max){
+                max=element;
+            }
+        }
+        System.out.println("\nMaximum value in the array: " + max);
+    }
+
+    public static void sumArray (int[] array){
+
+        int sum=0;
+
+        for(int element:array){
+            sum+=element;
+        }
+        System.out.println("\nSum of all elements in array: " + sum);
     }
 }
